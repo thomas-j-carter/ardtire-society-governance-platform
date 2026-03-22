@@ -1,0 +1,22 @@
+{
+  "name": "@ardtire/web",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite dev --port 3000",
+    "build": "vite build",
+    "start": "node .output/server/index.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "clean": "rimraf .output dist .tanstack"
+  },
+  "dependencies": {
+    "@tanstack/solid-router": "^1.131.0",
+    "@tanstack/solid-start": "^1.131.0",
+    "solid-js": "^1.9.9"
+  },
+  "devDependencies": {
+    "vite": "^7.1.4",
+    "vite-plugin-solid": "^2.11.8"
+  }
+}

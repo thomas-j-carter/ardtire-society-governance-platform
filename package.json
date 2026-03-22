@@ -1,8 +1,8 @@
 {
-  "name": "civic-governance-platform",
+  "name": "ardtire-governance-platform",
   "private": true,
   "version": "0.1.0",
-  "packageManager": "pnpm@10.32.1",
+  "packageManager": "pnpm@10.0.0",
   "engines": {
     "node": ">=20.11.1",
     "pnpm": ">=10.0.0"
@@ -15,6 +15,19 @@
     "test": "pnpm -r --if-present test",
     "format": "pnpm -r --if-present format",
     "clean": "pnpm -r --if-present clean",
-    "check": "pnpm lint && pnpm typecheck && pnpm test"
+    "check": "pnpm typecheck && pnpm test && pnpm build",
+    "prisma:generate": "pnpm --filter @ardtire/prisma generate",
+    "prisma:format": "pnpm --filter @ardtire/prisma format",
+    "prisma:validate": "pnpm --filter @ardtire/prisma validate",
+    "prisma:studio": "pnpm --filter @ardtire/prisma studio",
+    "db:migrate:dev": "pnpm --filter @ardtire/prisma migrate:dev",
+    "db:migrate:deploy": "pnpm --filter @ardtire/prisma migrate:deploy"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.13",
+    "rimraf": "^6.0.1",
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3",
+    "vitest": "^3.2.4"
   }
 }

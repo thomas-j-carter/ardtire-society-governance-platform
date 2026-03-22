@@ -1,0 +1,19 @@
+{
+  "name": "@ardtire/gov-api",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/main.ts",
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/main.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "clean": "rimraf dist"
+  },
+  "dependencies": {
+    "@civic-governance/contracts": "workspace:*",
+    "@hono/node-server": "^1.19.1",
+    "hono": "^4.9.1"
+  }
+}
