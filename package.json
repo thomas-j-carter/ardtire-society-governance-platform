@@ -15,7 +15,7 @@
     "test": "pnpm -r --if-present test",
     "format": "pnpm -r --if-present format",
     "clean": "pnpm -r --if-present clean",
-    "check": "pnpm typecheck && pnpm test && pnpm build",
+    "check": "pnpm build && pnpm typecheck && pnpm test",
     "prisma:generate": "pnpm --filter @ardtire/prisma generate",
     "prisma:format": "pnpm --filter @ardtire/prisma format",
     "prisma:validate": "pnpm --filter @ardtire/prisma validate",

@@ -7,11 +7,7 @@ export default defineConfig({
     port: 3000
   },
   plugins: [
-    tanstackStart({
-      target: 'node-server'
-    }),
-    viteSolid({
-      ssr: true
-    })
+    tanstackStart(),
+    viteSolid({ ssr: true })
   ]
 });

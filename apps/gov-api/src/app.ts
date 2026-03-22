@@ -1,5 +1,6 @@
+import { healthResponseSchema } from '@ardtire/contracts';
 import { Hono } from 'hono';
-import { healthResponseSchema } from '@civic-governance/contracts';
+import { proposalRoutes } from './features/proposals/routes.js';
 
 export function createApp() {
   const app = new Hono();
@@ -13,6 +14,8 @@ export function createApp() {
 
     return c.json(response, 200);
   });
+
+  app.route('/api/proposals', proposalRoutes);
 
   return app;
 }

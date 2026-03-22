@@ -12,7 +12,8 @@
     "clean": "rimraf dist"
   },
   "dependencies": {
-    "@civic-governance/contracts": "workspace:*",
+    "@ardtire/contracts": "workspace:*",
+    "@ardtire/domain": "workspace:*",
     "@hono/node-server": "^1.19.1",
     "hono": "^4.9.1"
   }

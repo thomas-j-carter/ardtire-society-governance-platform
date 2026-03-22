@@ -200,3 +200,6 @@ temp/
 
 # misc
 eslint-report.json
+
+
+apps/web/src/routeTree.gen.ts

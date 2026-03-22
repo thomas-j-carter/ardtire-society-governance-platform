@@ -31,15 +31,15 @@ prisma/     Canonical database schema and migrations
 
 Expected package scope:
 
-* `@civic-governance/*`
+* `@ardtire/*`
 
 Examples:
 
-* `@civic-governance/web`
-* `@civic-governance/gov-api`
-* `@civic-governance/contracts`
-* `@civic-governance/domain`
-* `@civic-governance/gov-client`
+* `@ardtire/web`
+* `@ardtire/gov-api`
+* `@ardtire/contracts`
+* `@ardtire/domain`
+* `@ardtire/gov-client`
 
 ---
 

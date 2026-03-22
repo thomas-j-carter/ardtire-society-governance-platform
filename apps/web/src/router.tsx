@@ -1,8 +1,5 @@
 import { createRouter } from '@tanstack/solid-router';
-import { indexRoute } from './routes/index';
-import { rootRoute } from './routes/__root';
-
-const routeTree = rootRoute.addChildren([indexRoute]);
+import { routeTree } from './routeTree.gen';
 
 export function getRouter() {
   return createRouter({

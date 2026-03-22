@@ -1,39 +1,20 @@
 /// <reference types="vite/client" />
 
 import * as Solid from 'solid-js';
+import { HydrationScript } from 'solid-js/web';
 import {
   HeadContent,
   Outlet,
   Scripts,
   createRootRoute
 } from '@tanstack/solid-router';
-import { HydrationScript } from 'solid-js/web';
 
-export const rootRoute = createRootRoute({
-  head: () => ({
-    meta: [
-      { charSet: 'utf-8' },
-      {
-        name: 'viewport',
-        content: 'width=device-width, initial-scale=1'
-      },
-      {
-        title: 'Ardtire Society Governance Platform'
-      }
-    ]
-  }),
-  component: RootComponent
+export const Route = createRootRoute({
+  component: RootComponent,
+  notFoundComponent: NotFoundPage
 });
 
 function RootComponent() {
-  return (
-    <RootDocument>
-      <Outlet />
-    </RootDocument>
-  );
-}
-
-function RootDocument(props: Readonly<{ children: Solid.JSX.Element }>) {
   return (
     <html lang="en">
       <head>
@@ -41,9 +22,20 @@ function RootDocument(props: Readonly<{ children: Solid.JSX.Element }>) {
         <HeadContent />
       </head>
       <body>
-        <Solid.Suspense>{props.children}</Solid.Suspense>
+        <Solid.Suspense>
+          <Outlet />
+        </Solid.Suspense>
         <Scripts />
       </body>
     </html>
+  );
+}
+
+function NotFoundPage() {
+  return (
+    <main style={{ padding: '2rem', 'font-family': 'system-ui, sans-serif' }}>
+      <h1>Page not found</h1>
+      <p>The requested route does not exist.</p>
+    </main>
   );
 }
