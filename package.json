@@ -8,20 +8,43 @@
     "pnpm": ">=10.0.0"
   },
   "scripts": {
-    "dev": "pnpm -r --parallel --if-present dev",
-    "build": "pnpm -r --if-present build",
+    "dev": "pnpm -r --parallel --if-present --filter ./apps/* dev",
+    "build": "pnpm run docs:prepare && pnpm -r --if-present build",
     "typecheck": "pnpm -r --if-present typecheck",
     "lint": "pnpm -r --if-present lint",
     "test": "pnpm -r --if-present test",
     "format": "pnpm -r --if-present format",
     "clean": "pnpm -r --if-present clean",
     "check": "pnpm build && pnpm typecheck && pnpm test",
+
     "prisma:generate": "pnpm --filter @ardtire/prisma generate",
     "prisma:format": "pnpm --filter @ardtire/prisma format",
     "prisma:validate": "pnpm --filter @ardtire/prisma validate",
     "prisma:studio": "pnpm --filter @ardtire/prisma studio",
+    
     "db:migrate:dev": "pnpm --filter @ardtire/prisma migrate:dev",
-    "db:migrate:deploy": "pnpm --filter @ardtire/prisma migrate:deploy"
+    "db:migrate:deploy": "pnpm --filter @ardtire/prisma migrate:deploy",
+
+    "knowledge:dev": "pnpm --filter @ardtire/knowledge dev",
+    "knowledge:build": "pnpm --filter @ardtire/knowledge build",
+    "knowledge:serve": "pnpm --filter @ardtire/knowledge serve",
+
+    "docs:inventory": "pnpm --filter @ardtire/docs-engine inventory",
+    "docs:impact": "pnpm --filter @ardtire/docs-engine impact",
+    "docs:validate": "pnpm --filter @ardtire/docs-engine validate",
+    "docs:context": "pnpm --filter @ardtire/docs-engine compile-context",
+    "docs:handoff": "pnpm --filter @ardtire/docs-engine build-handoff",
+    "docs:sync": "pnpm --filter @ardtire/docs-engine sync-knowledge",
+    "docs:prepare": "pnpm docs:inventory && pnpm docs:context && pnpm docs:sync && pnpm docs:validate",
+
+    "search:index": "pagefind --site apps/knowledge/build",
+    "knowledge:postbuild": "pnpm search:index",
+
+    "test:knowledge": "pnpm --filter @ardtire/knowledge test:e2e",
+
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "changeset publish"
   },
   "devDependencies": {
     "@types/node": "^20.19.13",
@@ -29,5 +52,8 @@
     "tsx": "^4.20.3",
     "typescript": "^5.8.3",
     "vitest": "^3.2.4"
+  },
+  "dependencies": {
+    "@changesets/cli": "^2.30.0"
   }
 }
